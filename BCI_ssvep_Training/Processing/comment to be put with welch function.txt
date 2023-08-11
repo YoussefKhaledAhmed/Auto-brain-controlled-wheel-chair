@@ -1,0 +1,7 @@
+Sure. If the data x is recorded with a sampling frequency of 128 Hz and the segment length is 5 seconds, then nperseg will be equal to 128 * 5 = 640 samples. This means that each segment will contain 640 samples of the signal.
+
+If you use nfft equal to nperseg (which is the default), then the FFT size will also be 640 points. This means that each segment will be zero-padded or truncated to fit the FFT size. The frequency resolution of the PSD estimate will be fs/nfft = 128/640 = 0.2 Hz. This means that each frequency bin will have a width of 0.2 Hz.
+
+If you use nfft equal to 1024 (which is a power of 2 larger than nperseg), then the FFT size will be 1024 points. This means that each segment will be zero-padded by adding 384 zeros at the end to fit the FFT size. The frequency resolution of the PSD estimate will be fs/nfft = 128/1024 = 0.125 Hz. This means that each frequency bin will have a width of 0.125 Hz.
+
+If you use nfft equal to 512 (which is a power of 2 smaller than nperseg), then the FFT size will be 512 points. This means that each segment will be truncated by discarding the last 128 samples to fit the FFT size. The frequency resolution of the PSD estimate will be fs/nfft = 128/512 = 0.25 Hz. This means that each frequency bin will have a width of 0.25 Hz.
